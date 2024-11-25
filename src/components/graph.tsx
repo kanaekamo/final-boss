@@ -17,6 +17,8 @@ type Graphprops = {
 
 const Graph: React.FC<Graphprops> = ({ data, labelFilter }) => {
 
+  const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
+
   //データが送られていない状態(初期)はメッセージを表示
   if (!Array.isArray(data) || data === null || data.length === 0) {
     return <div>表示したい都道府県を選択し、送信ボタンを押してください。</div>;
@@ -65,9 +67,6 @@ const Graph: React.FC<Graphprops> = ({ data, labelFilter }) => {
       data: item?.value,
     })),
   };
-
-  const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
-
 
   return (
     <HighchartsReact
