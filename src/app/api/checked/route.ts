@@ -35,7 +35,8 @@ export async function POST(req: NextRequest) {
       //idに対する処理
       try{
         //idを送る
-        const response = await fetch('http://localhost:3000/api/v1/population/composition/perYear', {
+        const fetchURL = process.env.NEXT_PUBLIC_API_URL + '/api/v1/population/composition/perYear';
+        const response = await fetch(fetchURL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

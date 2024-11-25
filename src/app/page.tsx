@@ -87,7 +87,7 @@ export default function Home() {
         </div>
         <div>
           <h1 className="sm:text-3xl text-2xl font-bold">■人口数グラフ</h1>
-          <p className="sm:text-lg text-sm mx-8 mb-4">表示する人口構成をタブで切り替え</p>
+          <p className="sm:text-lg text-sm mx-8 mb-4">表示する人口構成タブを選択してください。</p>
           <div className="flex">
             <input type="radio" id="all" value="all" name="jinko" className="hidden peer/all" checked={selectedRadio === 'all'} onChange={handleRadioChange} />
               <label htmlFor="all" className="p-2 outline outline-1 outline-offset-[-1px] rounded-t-lg peer-checked/all:bg-blue-800 peer-checked/all:text-white peer-checked/all:outline-blue-800 peer-checked/all:outline-2 cursor-pointer">総人口</label>
