@@ -68,6 +68,7 @@ const Graph: React.FC<Graphprops> = ({ data, labelFilter }) => {
 
   const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
 
+
   return (
     <HighchartsReact
       highcharts={Highcharts}
