@@ -16,9 +16,9 @@ interface labelData {
 
 //グラフ作成用データの型定義
 interface graphData {
-  type: 'line'
+  type: 'line';
   name: string;
-  labeldata: labelData[]
+  labeldata: labelData[];
 }
 
 export async function POST(req: NextRequest) {
@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
           }));
 
           //グラフ作成用のデータを作成
-          let graphLists: graphData[] = [{
+          const graphLists: graphData[] = [{
             type: 'line',
             name: `${value}`,
             labeldata: labelList

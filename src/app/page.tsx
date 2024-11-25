@@ -9,6 +9,17 @@ interface Prefecture {
   prefName: string;
 }
 
+//グラフ作成用データの型定義
+interface labelData {
+  label:string;
+  value:number[];
+}
+interface graphKata{
+  type: 'line';
+  name: string;
+  labeldata: labelData[];
+}
+
 export default function Home() {
   //都道府県APIの取得
   const [results, setResults] = useState<Prefecture[]>([]);
@@ -22,7 +33,7 @@ export default function Home() {
   }, []);
 
   //チェックを入れた時の動作
-  let [checkedItems, setCheckedItems] = useState<{ value: string; id: string }[]>([]);
+  const [checkedItems, setCheckedItems] = useState<{ value: string; id: string }[]>([]);
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, id, checked } = event.target;
     if (checked) {
@@ -32,7 +43,7 @@ export default function Home() {
     }
   };
 
-  const [graphData, setGraphData] = useState<any>(null);
+  const [graphData, setGraphData] = useState<graphKata[]>([]);
 
   //送信ボタンを押した時の動作
   const handleSubmit = async () => {
