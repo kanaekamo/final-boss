@@ -15,8 +15,6 @@ type Graphprops = {
   labelFilter: string;
 }
 
-const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
-
 const Graph: React.FC<Graphprops> = ({ data, labelFilter }) => {
 
   //データが送られていない状態(初期)はメッセージを表示
@@ -45,7 +43,6 @@ const Graph: React.FC<Graphprops> = ({ data, labelFilter }) => {
     }
   }).flat();
 
-
   //グラフに表示するデータを定義
   const options: Highcharts.Options = {
     title:{
@@ -68,6 +65,8 @@ const Graph: React.FC<Graphprops> = ({ data, labelFilter }) => {
       data: item?.value,
     })),
   };
+
+  const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
 
   return (
     <HighchartsReact
