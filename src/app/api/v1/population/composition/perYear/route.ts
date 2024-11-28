@@ -23,6 +23,6 @@ export async function POST(req: NextRequest) {
     const getData =await res.json();
     return NextResponse.json(getData);
   } catch (error) {
-    console.error('エラー:', error);
+    console.error('人口構成取得エラー:', error);
   }
 }
