@@ -14,10 +14,15 @@ export async function POST(req: NextRequest) {
     idDatas = [data.id]
     console.log('受け取った単一idデータ:', idDatas);
     const API_URL = `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${idDatas}`;
+    const apiKey = process.env.API_KEY;
+    if (!apiKey) {
+      console.error("APIキーがありません");
+      return;
+    }
     const res = await fetch(API_URL,{
       method: 'GET',
       headers:{
-        'X-API-KEY':'aviP2Y9W9ubiRWhiVKgE9k06FJC6I75rtkIpZXhP'
+        'X-API-KEY': apiKey
       }
     });
     const getData =await res.json();

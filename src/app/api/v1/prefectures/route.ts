@@ -5,10 +5,15 @@ const API_URL = 'https://opendata.resas-portal.go.jp/api/v1/prefectures'
 
 export async function GET() {
   try{
-    //APIキーの設定
+    //APIキー
+    const apiKey = process.env.API_KEY;
+    if (!apiKey) {
+      console.error("APIキーがありません");
+      return;
+    }
     const res = await fetch(API_URL,{
       headers:{
-        'X-API-KEY':'aviP2Y9W9ubiRWhiVKgE9k06FJC6I75rtkIpZXhP'
+        'X-API-KEY': apiKey
       }
     });
     //json形式を指定
